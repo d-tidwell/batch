@@ -2,6 +2,7 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class Profile {
@@ -15,6 +16,8 @@ public class Profile {
     private String location;
     private Calendar calendar;
     private Questionaire questionaire;
+    private String profilePictureId;
+    private Map<String, String> pictures;
     private LinkedList<List<String>> batchHistory;
     private List<String> friendsList;
     private List<Integer> profileVector;

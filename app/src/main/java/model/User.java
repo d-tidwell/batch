@@ -4,11 +4,13 @@ import java.util.Objects;
 
 public class User {
 
-    public String id;
-    public String firstName;
-    public String lastName;
-    public String username;
-    public String phoneNumber;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String phoneNumber;
+
+    private String paymentMethod;
 
     public String getId() {
         return id;
