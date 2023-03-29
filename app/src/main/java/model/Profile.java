@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,6 +15,8 @@ public class Profile {
     private String location;
     private Calendar calendar;
     private Questionaire questionaire;
+    private LinkedList<List<String>> batchHistory;
+    private List<String> friendsList;
     private List<Integer> profileVector;
 
     public String getProfileId() {
