@@ -9,10 +9,12 @@ import models.ProfileModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.inject.Inject;
+
 public class GetProfileActivity {
     private final Logger log = LogManager.getLogger();
     private final ProfileDao profileDao;
-
+    @Inject
     public GetProfileActivity(ProfileDao profileDao){
         this.profileDao = profileDao;
     }

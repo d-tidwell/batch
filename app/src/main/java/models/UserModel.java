@@ -64,5 +64,15 @@ public class UserModel {
     public int hashCode() {
         return Objects.hash(getId(), getFirstName(), getLastName(), getUsername(), getPhoneNumber());
     }
+    public static UserModel.Builder builder() {
+        return new UserModel.Builder();
+    }
+
+    public static class Builder {
+
+        public UserModel build() {
+            return new UserModel();
+        }
+    }
 
 }
