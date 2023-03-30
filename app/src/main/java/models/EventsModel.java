@@ -1,9 +1,9 @@
-package dynamodb.model;
+package models;
 
 import java.util.Date;
 import java.util.List;
 
-public class Events {
+public class EventsModel {
     private String eventId;
     private String location;
     private List<Date> dates;

@@ -1,10 +1,5 @@
 package models;
 
-import activity.results.GetProfileResult;
-import com.amazonaws.internal.config.Builder;
-import dynamodb.model.Calendar;
-import dynamodb.model.Questionaire;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -19,8 +14,8 @@ public class ProfileModel {
     private List<String> seeking;
     private List<String> sexual_preference;
     private String location;
-    private Calendar calendar;
-    private Questionaire questionaire;
+    private CalendarModel calendar;
+    private QuestionaireModel questionaire;
     private String profilePictureId;
     private Map<String, String> pictures;
     private LinkedList<List<String>> batchHistory;

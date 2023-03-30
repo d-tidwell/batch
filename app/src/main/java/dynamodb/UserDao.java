@@ -4,7 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import exceptions.UserNotFoundException;
 import metrics.MetricsConstants;
 import metrics.MetricsPublisher;
-import dynamodb.model.User;
+import models.UserModel;
 
 public class UserDao {
     private final DynamoDBMapper dynamoDBMapper;
@@ -15,8 +15,8 @@ public class UserDao {
         this.metricsPublisher = metricsPublisher;
     }
 
-    public User getUser(String id){
-        User user = this.dynamoDBMapper.load(User.class, id);
+    public UserModel getUser(String id){
+        UserModel user = this.dynamoDBMapper.load(UserModel.class, id);
         if (user== null) {
             metricsPublisher.addCount(MetricsConstants.GETUSER_USERNOTFOUND_COUNT, 1);
             throw new UserNotFoundException("Could not find Userwith id " + id);
@@ -26,15 +26,15 @@ public class UserDao {
     }
 
     // save and update function
-    public User saveUser(){
-        User user = new User();
+    public UserModel saveUser(){
+        UserModel user = new UserModel();
         this.dynamoDBMapper.save(user);
         return user;
     }
 
     public void deleteUser(String id, String authId){
         //confirm authorization to delete version just show perm or hibernate
-        User deleteUser = new User();
+        UserModel deleteUser = new UserModel();
         this.dynamoDBMapper.delete(deleteUser);
     }
 }

@@ -2,8 +2,8 @@ package dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import metrics.MetricsPublisher;
-import dynamodb.model.Answer;
-import dynamodb.model.Question;
+import models.AnswerModel;
+import models.QuestionModel;
 
 public class QuestionaireDao {
 
@@ -15,23 +15,23 @@ public class QuestionaireDao {
         this.metricsPublisher = metricsPublisher;
     }
 
-    public Question getQuestion(String id){
-        Question question = this.dynamoDBMapper.load(Question.class, id);
+    public QuestionModel getQuestion(String id){
+        QuestionModel question = this.dynamoDBMapper.load(QuestionModel.class, id);
         return question;
     }
-    public Answer getAnswer(String id){
-        Answer answer = this.dynamoDBMapper.load(Answer.class, id);
+    public AnswerModel getAnswer(String id){
+        AnswerModel answer = this.dynamoDBMapper.load(AnswerModel.class, id);
         return answer;
     }
 
-    public Question saveQuestion(String questionCopy) {
-        Question question = new Question();
+    public QuestionModel saveQuestion(String questionCopy) {
+        QuestionModel question = new QuestionModel();
         this.dynamoDBMapper.save(question);
         return question;
     }
 
-    public Answer saveAnswer(String answerCopy, String profileId, boolean showHide) {
-        Answer answer = new Answer();
+    public AnswerModel saveAnswer(String answerCopy, String profileId, boolean showHide) {
+        AnswerModel answer = new AnswerModel();
         this.dynamoDBMapper.save(answer);
         return answer;
     }

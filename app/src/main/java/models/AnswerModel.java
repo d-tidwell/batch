@@ -1,6 +1,6 @@
-package dynamodb.model;
+package models;
 
-public class Answer {
+public class AnswerModel {
     public String profileId;
     public String questionId;
     public String answer;

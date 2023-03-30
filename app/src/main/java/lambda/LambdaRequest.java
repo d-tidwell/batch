@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import static com.nashss.se.musicplaylistservice.utils.NullUtils.ifNull;
+import static utils.NullUtils.ifNull;
 
 /**
  * Represents a generic "APIGateway" request made to a lambda function.

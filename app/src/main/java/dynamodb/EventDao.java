@@ -4,7 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import exceptions.EventsNotFoundException;
 import metrics.MetricsConstants;
 import metrics.MetricsPublisher;
-import dynamodb.model.Events;
+import models.EventsModel;
 
 public class EventDao {
     
@@ -16,8 +16,8 @@ public class EventDao {
         this.metricsPublisher = metricsPublisher;
     }
 
-    public Events getProfile(String id){
-        Events event = this.dynamoDBMapper.load(Events.class, id);
+    public EventsModel getProfile(String id){
+        EventsModel event = this.dynamoDBMapper.load(EventsModel.class, id);
         if (event== null) {
             metricsPublisher.addCount(MetricsConstants.GETEEVENTS_EVENTSNOTFOUND_COUNT, 1);
             throw new EventsNotFoundException("Could not find Events with id " + id);
@@ -27,15 +27,15 @@ public class EventDao {
     }
 
     // save and update function
-    public Events saveEvent(){
-        Events Event = new Events();
+    public EventsModel saveEvent(){
+        EventsModel Event = new EventsModel();
         this.dynamoDBMapper.save(Event);
         return Event;
     }
 
     public void deleteEvent(String id, String authId){
         //confirm authorization to delete version just show perm or hibernate
-        Events deleteEvent = new Events();
+        EventsModel deleteEvent = new EventsModel();
         this.dynamoDBMapper.delete(deleteEvent);
     }
 }
