@@ -1,4 +1,4 @@
-package model;
+package dynamodb.model;
 
 import java.util.Date;
 import java.util.List;

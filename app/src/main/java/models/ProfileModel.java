@@ -1,11 +1,16 @@
-package model;
+package models;
+
+import activity.results.GetProfileResult;
+import com.amazonaws.internal.config.Builder;
+import dynamodb.model.Calendar;
+import dynamodb.model.Questionaire;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class Profile {
+public class ProfileModel {
 
     public String profileId;
     private String username;
@@ -83,12 +88,23 @@ public class Profile {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Profile profile = (Profile) o;
+        ProfileModel profile = (ProfileModel) o;
         return getProfileId().equals(profile.getProfileId()) && getUsername().equals(profile.getUsername()) && getAge().equals(profile.getAge()) && getGender().equals(profile.getGender()) && getSeeking().equals(profile.getSeeking()) && getSexual_preference().equals(profile.getSexual_preference()) && getLocation().equals(profile.getLocation());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getProfileId(), getUsername(), getAge(), getGender(), getSeeking(), getSexual_preference(), getLocation());
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public ProfileModel build() {
+            return new ProfileModel();
+        }
     }
 }

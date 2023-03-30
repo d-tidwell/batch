@@ -1,4 +1,4 @@
-package model;
+package dynamodb.model;
 
 public class Answer {
     public String profileId;
