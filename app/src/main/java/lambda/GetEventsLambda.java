@@ -16,7 +16,7 @@ public class GetEventsLambda
         return super.runActivity(
                 () -> input.fromPath(path ->
                         GetEventsRequest.builder()
-                                .withId(path.get("id"))
+                                .withId(path.get("eventId"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.provideGetEventsActivity().handleRequest(request)

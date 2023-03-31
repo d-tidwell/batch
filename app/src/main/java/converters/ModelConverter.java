@@ -2,9 +2,11 @@ package converters;
 
 import dynamodb.model.Events;
 import dynamodb.model.Profile;
+import dynamodb.model.Question;
 import dynamodb.model.User;
 import models.EventsModel;
 import models.ProfileModel;
+import models.QuestionModel;
 import models.UserModel;
 
 public class ModelConverter {
@@ -22,6 +24,11 @@ public class ModelConverter {
 
     public EventsModel toEventsModel(Events events) {
         return new EventsModel.builder()
+                .build();
+    }
+
+    public QuestionModel toQuestionModel(Question questions) {
+        return new QuestionModel.builder()
                 .build();
     }
 }
