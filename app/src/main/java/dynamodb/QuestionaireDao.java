@@ -1,6 +1,7 @@
 package dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import dynamodb.model.Answer;
 import dynamodb.model.Question;
 import metrics.MetricsPublisher;
 
@@ -15,5 +16,10 @@ public class QuestionaireDao {
     }
 
     public Question getQuestions(String requestId) {
+        return new Question();
+    }
+
+    public Answer getAnswer(String requestId) {
+        return new Answer();
     }
 }
