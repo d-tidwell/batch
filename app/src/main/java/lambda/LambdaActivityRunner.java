@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 /**
  * Parent class for Lambda functions that run Activities..
  * @param <TRequest> The type of the Activity Request.
- * @param <TResult> The type of the AActivity Result.
+ * @param <TResult> The type of the Activity Result.
  */
 public abstract class LambdaActivityRunner<TRequest, TResult> {
     private ServiceComponent service;

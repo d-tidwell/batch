@@ -15,7 +15,7 @@ public class GetProfileLambda
         return super.runActivity(
                 () -> input.fromPath(path ->
                         GetProfileRequest.builder()
-                                .withId(path.get("id"))
+                                .withId(path.get("profileId"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.provideGetProfileActivity().handleRequest(request)

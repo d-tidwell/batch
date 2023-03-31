@@ -1,18 +1,15 @@
 package activity;
 
-import activity.requests.GetProfileRequest;
 import activity.requests.GetUserRequest;
-import activity.results.GetProfileResult;
 import activity.results.GetUserResult;
 import converters.ModelConverter;
-import dynamodb.ProfileDao;
 import dynamodb.UserDao;
-import dynamodb.model.Profile;
 import dynamodb.model.User;
-import models.ProfileModel;
 import models.UserModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import javax.inject.Inject;
 
 public class GetUserActivity {
     private final Logger log = LogManager.getLogger();
