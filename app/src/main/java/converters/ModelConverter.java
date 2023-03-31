@@ -25,17 +25,17 @@ public class ModelConverter {
     }
 
     public EventsModel toEventsModel(Events events) {
-        return new EventsModel.builder()
+        return new EventsModel().builder()
                 .build();
     }
 
     public QuestionModel toQuestionModel(Question questions) {
-        return new QuestionModel.builder()
+        return new QuestionModel().builder()
                 .build();
     }
 
     public AnswerModel toAnswerModel(Answer answer) {
-        return new AnswerModel.builder()
+        return new AnswerModel().builder()
                 .build();
     }
 }
