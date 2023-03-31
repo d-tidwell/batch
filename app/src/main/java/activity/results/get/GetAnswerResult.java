@@ -1,7 +1,6 @@
-package activity.results;
+package activity.results.get;
 
 import models.AnswerModel;
-import models.QuestionModel;
 
 public class GetAnswerResult {
     private final AnswerModel answer;

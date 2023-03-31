@@ -1,9 +1,9 @@
-package activity.requests;
+package activity.requests.get;
 
-public class GetAnswerRequest {
+public class GetQuestionRequest {
     private final String id;
 
-    public GetAnswerRequest(String id) {
+    public GetQuestionRequest(String id) {
         this.id = id;
     }
 
@@ -23,8 +23,8 @@ public class GetAnswerRequest {
             return this;
         }
 
-        public GetAnswerRequest build() {
-            return new GetAnswerRequest(id);
+        public GetQuestionRequest build() {
+            return new GetQuestionRequest(id);
         }
     }
 }

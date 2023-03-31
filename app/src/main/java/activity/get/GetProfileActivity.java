@@ -1,7 +1,7 @@
-package activity;
+package activity.get;
 
-import activity.requests.GetProfileRequest;
-import activity.results.GetProfileResult;
+import activity.requests.get.GetProfileRequest;
+import activity.results.get.GetProfileResult;
 import converters.ModelConverter;
 import dynamodb.ProfileDao;
 import dynamodb.model.Profile;

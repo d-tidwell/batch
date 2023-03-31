@@ -1,15 +1,11 @@
-package activity;
+package activity.get;
 
-import activity.requests.GetEventsRequest;
-import activity.requests.GetProfileRequest;
-import activity.results.GetEventsResult;
+import activity.requests.get.GetEventsRequest;
+import activity.results.get.GetEventsResult;
 import converters.ModelConverter;
 import dynamodb.EventDao;
-import dynamodb.ProfileDao;
 import dynamodb.model.Events;
-import dynamodb.model.Profile;
 import models.EventsModel;
-import models.ProfileModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

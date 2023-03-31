@@ -1,15 +1,11 @@
-package activity;
+package activity.get;
 
-import activity.requests.GetAnswerRequest;
-import activity.requests.GetQuestionRequest;
-import activity.results.GetAnswerResult;
-import activity.results.GetQuestionResult;
+import activity.requests.get.GetAnswerRequest;
+import activity.results.get.GetAnswerResult;
 import converters.ModelConverter;
 import dynamodb.QuestionaireDao;
 import dynamodb.model.Answer;
-import dynamodb.model.Question;
 import models.AnswerModel;
-import models.QuestionModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

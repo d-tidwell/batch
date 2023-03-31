@@ -1,7 +1,7 @@
-package activity;
+package activity.get;
 
-import activity.requests.GetUserRequest;
-import activity.results.GetUserResult;
+import activity.requests.get.GetUserRequest;
+import activity.results.get.GetUserResult;
 import converters.ModelConverter;
 import dynamodb.UserDao;
 import dynamodb.model.User;

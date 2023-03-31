@@ -15,11 +15,13 @@ public class QuestionaireDao {
         this.metricsPublisher = metricsPublisher;
     }
 
-    public Question getQuestions(String requestId) {
-        return new Question();
+    public Question getQuestions(String id) {
+        Question question = this.dynamoDBMapper.load(Question.class, id);
+        return question;
     }
 
-    public Answer getAnswer(String requestId) {
-        return new Answer();
+    public Answer getAnswer(String id) {
+        Answer answer = this.dynamoDBMapper.load(Answer.class, id);
+        return answer;
     }
 }

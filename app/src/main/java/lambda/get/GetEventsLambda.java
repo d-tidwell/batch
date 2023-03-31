@@ -1,12 +1,13 @@
-package lambda;
+package lambda.get;
 
 
-import activity.requests.GetEventsRequest;
-import activity.requests.GetUserRequest;
-import activity.results.GetEventsResult;
-import activity.results.GetUserResult;
+import activity.requests.get.GetEventsRequest;
+import activity.results.get.GetEventsResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import lambda.LambdaActivityRunner;
+import lambda.LambdaRequest;
+import lambda.LambdaResponse;
 
 public class GetEventsLambda
         extends LambdaActivityRunner<GetEventsRequest, GetEventsResult>

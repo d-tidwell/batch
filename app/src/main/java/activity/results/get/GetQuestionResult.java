@@ -1,6 +1,5 @@
-package activity.results;
+package activity.results.get;
 
-import models.EventsModel;
 import models.QuestionModel;
 
 public class GetQuestionResult {

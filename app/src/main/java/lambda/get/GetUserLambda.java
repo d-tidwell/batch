@@ -1,12 +1,13 @@
-package lambda;
+package lambda.get;
 
 
-import activity.requests.GetProfileRequest;
-import activity.requests.GetUserRequest;
-import activity.results.GetProfileResult;
-import activity.results.GetUserResult;
+import activity.requests.get.GetUserRequest;
+import activity.results.get.GetUserResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import lambda.LambdaActivityRunner;
+import lambda.LambdaRequest;
+import lambda.LambdaResponse;
 
 public class GetUserLambda
         extends LambdaActivityRunner<GetUserRequest, GetUserResult>

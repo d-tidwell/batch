@@ -1,4 +1,4 @@
-package activity.results;
+package activity.results.get;
 
 import models.ProfileModel;
 

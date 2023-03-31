@@ -1,4 +1,4 @@
-package activity.requests;
+package activity.requests.get;
 
 public class GetUserRequest {
     private final String id;

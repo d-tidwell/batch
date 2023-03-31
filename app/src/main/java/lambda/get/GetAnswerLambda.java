@@ -1,9 +1,10 @@
-package lambda;
+package lambda.get;
 
-import activity.requests.GetQuestionRequest;
-import activity.results.GetQuestionResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import lambda.LambdaActivityRunner;
+import lambda.LambdaRequest;
+import lambda.LambdaResponse;
 
 public class GetAnswerLambda
         extends LambdaActivityRunner<GetAnswerRequest, GetAnswerResult>

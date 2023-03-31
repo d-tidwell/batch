@@ -1,15 +1,10 @@
-package activity;
+package activity.get;
 
-import activity.requests.GetEventsRequest;
-import activity.requests.GetQuestionRequest;
-import activity.results.GetEventsResult;
-import activity.results.GetQuestionResult;
+import activity.requests.get.GetQuestionRequest;
+import activity.results.get.GetQuestionResult;
 import converters.ModelConverter;
-import dynamodb.EventDao;
 import dynamodb.QuestionaireDao;
-import dynamodb.model.Events;
 import dynamodb.model.Question;
-import models.EventsModel;
 import models.QuestionModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
