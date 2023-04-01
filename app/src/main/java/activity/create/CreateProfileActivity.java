@@ -1,6 +1,8 @@
 package activity.create;
 
 
+import activity.requests.create.CreateProfileRequest;
+import activity.results.create.CreateProfileResult;
 import converters.ModelConverter;
 import dynamodb.ProfileDao;
 import dynamodb.model.Profile;
@@ -20,7 +22,7 @@ public class CreateProfileActivity {
     /**
      * Instantiates a new CreateProfileActivity object.
      *
-     * @param ProfileDao ProfileDao to access the Profiles table.
+     * @param profileDao ProfileDao to access the Profiles table.
      */
     @Inject
     public CreateProfileActivity(ProfileDao profileDao) {

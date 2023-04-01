@@ -24,4 +24,7 @@ public class QuestionaireDao {
         Answer answer = this.dynamoDBMapper.load(Answer.class, id);
         return answer;
     }
+
+    public Question saveQuestion() {
+    }
 }
