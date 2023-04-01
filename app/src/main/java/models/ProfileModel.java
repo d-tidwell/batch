@@ -12,15 +12,15 @@ public class ProfileModel {
     private Integer age;
     private String gender;
     private List<String> seeking;
-    private List<String> dating_preference;
+    private List<String> dating_preferences;
     private String location;
-    private CalendarModel calendar;
-    private QuestionaireModel questionaire;
-    private String profilePictureId;
-    private Map<String, String> pictures;
-    private LinkedList<List<String>> batchHistory;
     private List<String> friendsList;
     private List<Integer> profileVector;
+    private String profilePictureId;
+    private CalendarModel calendar;
+    private Map<String, String> pictures;
+    private LinkedList<List<String>> batchHistory;
+
 
 
 

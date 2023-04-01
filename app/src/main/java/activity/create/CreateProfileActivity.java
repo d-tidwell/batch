@@ -10,6 +10,7 @@ import exceptions.InvalidAttributeException;
 import models.ProfileModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utils.IdGenerator;
 
 import javax.inject.Inject;
 
@@ -33,8 +34,13 @@ public class CreateProfileActivity {
             throws InvalidAttributeException {
         log.info("Received CreateProfileRequest {}", createProfileRequest);
 
+        //validate request - create id for object
+        String newId = IdGenerator.idGenerator(createProfileRequest.getUserId(), createProfileRequest.getUsername());
+
         //handle creating a profile sparse
-        Profile profile = profileDao.saveProfile(createProfileRequest);
+        Profile profile = profileDao.saveProfile(createProfileRequest.getIsNew(), newId, createProfileRequest.getUsername(),
+                createProfileRequest.getAge(), createProfileRequest.getGender(), createProfileRequest.getLocation(),
+                createProfileRequest.getSeeking(), createProfileRequest.getDatingPreferences());
 
         ProfileModel profileModel = new ModelConverter().toProfileModel(profile);
 

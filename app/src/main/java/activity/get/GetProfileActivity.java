@@ -22,7 +22,7 @@ public class GetProfileActivity {
     public GetProfileResult handleRequest(final GetProfileRequest getProfileRequest){
         log.info("Received GetProfileRequest {}", getProfileRequest);
         String requestId = getProfileRequest.getId();
-
+        //validator needed
         Profile profile = profileDao.getProfile(requestId);
         ProfileModel profileModel = new ModelConverter().toProfileModel(profile);
         return GetProfileResult.builder()
