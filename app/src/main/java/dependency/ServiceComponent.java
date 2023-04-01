@@ -3,6 +3,7 @@ package dependency;
 import activity.create.CreateEventsActivity;
 import activity.create.CreateProfileActivity;
 import activity.create.CreateQuestionActivity;
+import activity.create.CreateUserActivity;
 import activity.get.GetEventsActivity;
 import activity.get.GetProfileActivity;
 import activity.get.GetQuestionActivity;
@@ -10,6 +11,7 @@ import activity.get.GetUserActivity;
 import activity.requests.create.CreateEventsRequest;
 import activity.requests.create.CreateProfileRequest;
 import activity.requests.create.CreateQuestionRequest;
+import activity.requests.create.CreateUserRequest;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import dagger.Component;
 
@@ -32,4 +34,6 @@ public interface ServiceComponent {
     CreateEventsActivity provideCreateEventsActivity();
 
     CreateQuestionActivity provideCreateQuestionActivity();
+
+    CreateUserActivity provideCreateUserActivity();
 }
