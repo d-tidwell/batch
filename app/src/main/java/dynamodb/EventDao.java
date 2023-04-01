@@ -7,6 +7,8 @@ import metrics.MetricsConstants;
 import metrics.MetricsPublisher;
 import models.EventsModel;
 
+import java.util.UUID;
+
 public class EventDao {
     
     private final DynamoDBMapper dynamoDBMapper;
@@ -28,16 +30,50 @@ public class EventDao {
         return event;
     }
 
-    // save and update function
-    public Events saveEvent(){
-        Events event = new Events();
-        this.dynamoDBMapper.save(event);
-        return event;
-    }
-
     public void deleteEvent(String id, String authId){
         //confirm authorization to delete version just show perm or hibernate
         Events deleteEvent = new Events();
         this.dynamoDBMapper.delete(deleteEvent);
+    }
+
+    public Events saveEvent(boolean isNew, String newId, String name, String location, String date, String startTime,
+                            String endTime, String description, String category, String price_range) {
+        Events newEvent = new Events();
+        newEvent.setEventId(newId);
+        newEvent.setDate(date);
+
+        if (isNew) {
+            newEvent.setName(name);
+            newEvent.setLocation(location);
+            newEvent.setStartTime(startTime);
+            newEvent.setEndTime(endTime);
+            newEvent.setDescription(description);
+            newEvent.setCategory(category);
+            newEvent.setPrice_range(price_range);
+        } else {
+            if (name != null) {
+                newEvent.setName(name);
+            }
+            if (location != null) {
+                newEvent.setLocation(location);
+            }
+            if (startTime != null) {
+                newEvent.setStartTime(startTime);
+            }
+            if (endTime != null) {
+                newEvent.setEndTime(endTime);
+            }
+            if (description != null) {
+                newEvent.setDescription(description);
+            }
+            if (category != null) {
+                newEvent.setCategory(category);
+            }
+            if (price_range != null) {
+                newEvent.setPrice_range(price_range);
+            }
+        }
+        this.dynamoDBMapper.save(newEvent);
+        return newEvent;
     }
 }

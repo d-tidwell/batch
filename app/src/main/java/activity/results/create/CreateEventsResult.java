@@ -1,7 +1,6 @@
 package activity.results.create;
 
 import models.EventsModel;
-import models.ProfileModel;
 
 public class CreateEventsResult {
     private final EventsModel events;

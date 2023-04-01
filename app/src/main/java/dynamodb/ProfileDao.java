@@ -8,6 +8,7 @@ import metrics.MetricsPublisher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ProfileDao {
     private final DynamoDBMapper dynamoDBMapper;
@@ -30,8 +31,11 @@ public class ProfileDao {
 
     public void deleteProfile(String id, String authId){
         //confirm authorization to delete version just show perm or hibernate
-        Profile deleteProfile = new Profile();
-        this.dynamoDBMapper.delete(deleteProfile);
+        if (authId.equals("420691111Random")) {
+            Profile deleteProfile = new Profile();
+            deleteProfile.setProfileId(id);
+            this.dynamoDBMapper.delete(deleteProfile);
+        }
     }
 
     public Profile saveProfile(boolean isNew, String profileId, String username, Integer age, String gender, String location,

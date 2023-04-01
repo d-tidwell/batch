@@ -6,7 +6,7 @@ import java.util.List;
 public class EventsModel {
     private String eventId;
     private String location;
-    private List<Date> dates;
+    private String date;
     private String startTime;
     private String endTime;
     private String description;
