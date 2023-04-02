@@ -17,7 +17,7 @@ public class GetUserLambda
         return super.runActivity(
                 () -> input.fromPath(path ->
                         GetUserRequest.builder()
-                                .withId(path.get("id"))
+                                .withId(path.get("userId"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.provideGetUserActivity().handleRequest(request)

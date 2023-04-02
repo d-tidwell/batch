@@ -1,5 +1,7 @@
 package lambda.get;
 
+import activity.requests.get.GetAnswerRequest;
+import activity.results.get.GetAnswerResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import lambda.LambdaActivityRunner;
@@ -16,7 +18,7 @@ public class GetAnswerLambda
         return super.runActivity(
                 () -> input.fromPath(path ->
                         GetAnswerRequest.builder()
-                                .withId(path.get("AnswerId"))
+                                .withId(path.get("answerId"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.provideGetAnswerActivity().handleRequest(request)
