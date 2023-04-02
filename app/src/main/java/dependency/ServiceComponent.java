@@ -14,6 +14,8 @@ import activity.requests.create.CreateEventsRequest;
 import activity.requests.create.CreateProfileRequest;
 import activity.requests.create.CreateQuestionRequest;
 import activity.requests.create.CreateUserRequest;
+import activity.requests.update.UpdateProfileRequest;
+import activity.update.UpdateProfileActivity;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import dagger.Component;
 
@@ -40,4 +42,6 @@ public interface ServiceComponent {
     CreateUserActivity provideCreateUserActivity();
 
     CreateAnswerActivity provideCreateAnswerActivity();
+
+    UpdateProfileActivity provideUpdateProfileActivity();
 }
