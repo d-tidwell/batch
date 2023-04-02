@@ -30,9 +30,10 @@ public class EventDao {
         return event;
     }
 
-    public void deleteEvent(String id, String authId){
+    public void deleteEvent(String id){
         //confirm authorization to delete version just show perm or hibernate
         Events deleteEvent = new Events();
+        deleteEvent.setEventId(id);
         this.dynamoDBMapper.delete(deleteEvent);
     }
 

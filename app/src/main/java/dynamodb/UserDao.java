@@ -26,16 +26,38 @@ public class UserDao {
         return user;
     }
 
-    // save and update function
-    public User saveUser(){
-        User user = new User();
-        this.dynamoDBMapper.save(user);
-        return user;
-    }
-
     public void deleteUser(String id, String authId){
         //confirm authorization to delete version just show perm or hibernate
         User deleteUser = new User();
         this.dynamoDBMapper.delete(deleteUser);
+    }
+
+    public User saveUser(boolean newUser, String newId, String firstName, String lastName, String username, String phoneNumber) {
+
+        User newUsers = new User();
+        newUsers.setId(newId);
+        newUsers.setLastName(lastName);
+
+        if (newUser){
+            newUsers.setFirstName(firstName);
+            newUsers.setPhoneNumber(phoneNumber);
+
+        } else {
+            if (username != null){
+                newUsers.setUsername(username);
+            }
+            if (firstName != null){
+                newUsers.setFirstName(firstName);
+            }
+            if (lastName != null){
+                newUsers.setLastName(lastName);
+            }
+            if (phoneNumber != null){
+                newUsers.setPhoneNumber(phoneNumber);
+            }
+        }
+        this.dynamoDBMapper.save(newUsers);
+        return newUsers;
+
     }
 }

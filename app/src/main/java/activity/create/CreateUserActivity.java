@@ -9,6 +9,7 @@ import exceptions.InvalidAttributeException;
 import models.UserModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utils.IdGenerator;
 
 import javax.inject.Inject;
 
@@ -29,9 +30,11 @@ public class CreateUserActivity {
     public CreateUserResult handleRequest(final CreateUserRequest createUserRequest)
             throws InvalidAttributeException {
         log.info("Received CreateUserRequest {}", createUserRequest);
-
+        String newId = IdGenerator.idGenerator(createUserRequest.getLastName(), createUserRequest.getPhoneNumber());
         //handle creating a User sparse
-        User User = UserDao.saveUser(createUserRequest);
+        User User = UserDao.saveUser(createUserRequest.getNewUser(), newId, createUserRequest.getFirstName(),
+                                     createUserRequest.getLastName(), createUserRequest.getUsername(),
+                                     createUserRequest.getPhoneNumber());
 
         UserModel UserModel = new ModelConverter().toUserModel(User);
 

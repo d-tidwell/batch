@@ -9,6 +9,7 @@ import exceptions.InvalidAttributeException;
 import models.QuestionModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utils.IdGenerator;
 
 import javax.inject.Inject;
 
@@ -19,7 +20,7 @@ public class CreateQuestionActivity {
     /**
      * Instantiates a new CreateQuestionActivity object.
      *
-     * @param QuestionDao QuestionDao to access the Questions table.
+     * @param questionDao QuestionDao to access the Questions table.
      */
     @Inject
     public CreateQuestionActivity(QuestionaireDao questionDao) {
@@ -29,11 +30,11 @@ public class CreateQuestionActivity {
     public CreateQuestionResult handleRequest(final CreateQuestionRequest createQuestionRequest)
             throws InvalidAttributeException {
         log.info("Received CreateQuestionRequest {}", createQuestionRequest);
-
+        String newId = IdGenerator.idGenerator("question", createQuestionRequest.getQuestion());
         //handle creating a Question sparse
-        Question Question = questionDao.saveQuestion();
+        Question question = questionDao.saveQuestion(newId, createQuestionRequest.getQuestion());
 
-        QuestionModel QuestionModel = new ModelConverter().toQuestionModel(question);
+        QuestionModel questionModel = new ModelConverter().toQuestionModel(question);
 
         return CreateQuestionResult.builder()
                 .withQuestion(questionModel)

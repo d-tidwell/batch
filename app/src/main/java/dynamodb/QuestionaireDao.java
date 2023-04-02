@@ -25,6 +25,21 @@ public class QuestionaireDao {
         return answer;
     }
 
-    public Question saveQuestion() {
+    public Question saveQuestion(String newId, String questionCopy) {
+        Question question = new Question();
+        question.setQuestionId(newId);
+        question.setQuestion(questionCopy);
+        this.dynamoDBMapper.save(question);
+        return question;
+    }
+
+    public Answer saveAnswer(String profileId, String questionId, String answer, Boolean showHide) {
+        Answer newAnswer = new Answer();
+        newAnswer.setProfileId(profileId);
+        newAnswer.setQuestionId(questionId);
+        newAnswer.setAnswer(answer);
+        newAnswer.setShowHide(showHide);
+        this.dynamoDBMapper.save(newAnswer);
+        return newAnswer;
     }
 }

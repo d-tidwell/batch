@@ -5,9 +5,20 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 @JsonDeserialize(builder = CreateQuestionRequest.Builder.class)
 public class CreateQuestionRequest {
+    public String questionId;
+    public String question;
 
-    private CreateQuestionRequest(String id){
+    public CreateQuestionRequest(String questionId, String question) {
+        this.questionId = questionId;
+        this.question = question;
+    }
 
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public String getQuestion() {
+        return question;
     }
 
     public static Builder builder() {
@@ -16,15 +27,19 @@ public class CreateQuestionRequest {
 
     @JsonPOJOBuilder
     public static class Builder {
-        private String id;
+        public String questionId;
+        public String question;
 
         public Builder withId(String id){
-            this.id = id;
+            this.questionId = id;
             return this;
         }
-
+        public Builder withQuestion(String question){
+            this.question = question;
+            return this;
+        }
         public CreateQuestionRequest build() {
-            return new CreateQuestionRequest(id);
+            return new CreateQuestionRequest(questionId, question);
         }
 
     }

@@ -20,7 +20,7 @@ public class CreateEventsActivity {
     /**
      * Instantiates a new CreateEventsActivity object.
      *
-     * @param eventsDao EventsDao to access the Eventss table.
+     * @param eventsDao EventsDao to access the Events table.
      */
     @Inject
     public CreateEventsActivity(EventDao eventsDao) {
