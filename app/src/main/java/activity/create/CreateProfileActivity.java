@@ -34,7 +34,6 @@ public class CreateProfileActivity {
             throws InvalidAttributeException {
         log.info("Received CreateProfileRequest {}", createProfileRequest);
 
-        //validate request - create id for object
         String newId = IdGenerator.idGenerator(createProfileRequest.getUserId(), createProfileRequest.getUsername());
 
         //handle creating a profile sparse
