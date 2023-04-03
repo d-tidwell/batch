@@ -2,11 +2,13 @@ package models;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class CalendarModel {
 
     private String calendarId;
-    private List<Date> availability;
+    private Map<String, String> events;
+
 
     public static CalendarModel.Builder builder() {
         return new CalendarModel.Builder();
