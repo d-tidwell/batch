@@ -2,6 +2,7 @@ package dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import dynamodb.model.Calendar;
+import dynamodb.model.Events;
 import dynamodb.model.Profile;
 import exceptions.ProfileNotFoundException;
 import metrics.MetricsConstants;
@@ -10,6 +11,7 @@ import metrics.MetricsPublisher;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class ProfileDao {
@@ -84,6 +86,15 @@ public class ProfileDao {
 
     public Calendar getCalendar(String requestId) {
         Calendar calendar = this.dynamoDBMapper.load(Calendar.class, requestId);
+        return calendar;
+    }
+
+    //needs a route in order to work as endpoint
+    public Calendar addEventToCalendar(Events event, String profileId){
+        Calendar calendar = getCalendar(profileId);
+        Map<String, String> events = calendar.getCalendar();
+        events.put(event.getDate(), event.getEventId());
+        this.dynamoDBMapper.save(calendar);
         return calendar;
     }
 }
