@@ -1,12 +1,14 @@
 package dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import dynamodb.model.Calendar;
 import dynamodb.model.Profile;
 import exceptions.ProfileNotFoundException;
 import metrics.MetricsConstants;
 import metrics.MetricsPublisher;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -44,6 +46,12 @@ public class ProfileDao {
         newProfile.setProfileId(profileId);
         newProfile.setUsername(username);
         if ( isNew ) {
+            //create a new calendar
+            Calendar calendar = new Calendar();
+            calendar.setProfileId(profileId);
+            calendar.setCalendar(new HashMap<>());
+            this.dynamoDBMapper.save(calendar);
+
             newProfile.setAge(age);
             newProfile.setGender(gender);
             newProfile.setLocation(location);
@@ -72,5 +80,10 @@ public class ProfileDao {
         }
         this.dynamoDBMapper.save(newProfile);
         return newProfile;
+    }
+
+    public Calendar getCalendar(String requestId) {
+        Calendar calendar = this.dynamoDBMapper.load(Calendar.class, requestId);
+        return calendar;
     }
 }

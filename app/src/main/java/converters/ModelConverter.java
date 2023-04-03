@@ -1,11 +1,13 @@
 package converters;
 
 import dynamodb.model.Answer;
+import dynamodb.model.Calendar;
 import dynamodb.model.Events;
 import dynamodb.model.Profile;
 import dynamodb.model.Question;
 import dynamodb.model.User;
 import models.AnswerModel;
+import models.CalendarModel;
 import models.EventsModel;
 import models.ProfileModel;
 import models.QuestionModel;
@@ -36,6 +38,11 @@ public class ModelConverter {
 
     public AnswerModel toAnswerModel(Answer answer) {
         return new AnswerModel().builder()
+                .build();
+    }
+
+    public CalendarModel toCalendarModel(Calendar calendar) {
+        return new CalendarModel().builder()
                 .build();
     }
 }
