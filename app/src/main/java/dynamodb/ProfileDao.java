@@ -18,9 +18,12 @@ public class ProfileDao {
     private final DynamoDBMapper dynamoDBMapper;
     private final MetricsPublisher metricsPublisher;
 
-    public ProfileDao(DynamoDBMapper dynamoDBMapper, MetricsPublisher metricsPublisher) {
+    private final EventDao eventDao;
+
+    public ProfileDao(DynamoDBMapper dynamoDBMapper, MetricsPublisher metricsPublisher, EventDao eventDao) {
         this.dynamoDBMapper = dynamoDBMapper;
         this.metricsPublisher = metricsPublisher;
+        this.eventDao = eventDao;
     }
 
     public Profile getProfile(String id){
@@ -90,9 +93,10 @@ public class ProfileDao {
     }
 
     //needs a route in order to work as endpoint
-    public Calendar addEventToCalendar(Events event, String profileId){
+    public Calendar addEventToCalendar(String eventId, String profileId){
         Calendar calendar = getCalendar(profileId);
         Map<String, String> events = calendar.getCalendar();
+        Events event = eventDao.getEvents(eventId);
         events.put(event.getDate(), event.getEventId());
         this.dynamoDBMapper.save(calendar);
         return calendar;
