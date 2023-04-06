@@ -14,11 +14,11 @@ public class MetricsConstants {
             "UpdateUser.InvalidAttributeValueException.Count";
     public static final String UPDATEUSER_INVALIDATTRIBUTECHANGE_COUNT =
             "UpdateUser.InvalidAttributeChangeException.Count";
+    public static final String GETCALENDAR_CALENDARNOTFOUND_COUNT = "GetCalendar.CalendarNotFoundException.Count";
 
-    public static final String GETEEVENTS_EVENTSNOTFOUND_COUNT = ;
+    public static final String GETEEVENTS_EVENTSNOTFOUND_COUNT = "GetEvents.EventsNotFoundException.Count";
     public static final String SERVICE = "Service";
     public static final String SERVICE_NAME = "BatchService";
     public static final String NAMESPACE_NAME = "DT/BatchService";
-
 
 }

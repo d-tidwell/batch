@@ -1,15 +1,14 @@
 package activity.requests.update;
 
-import activity.update.AddEventToCalendarActivity;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import lambda.update.AddEventToCalendarLambda;
+
 
 @JsonDeserialize(builder = AddEventToCalendarRequest.Builder.class)
 public class AddEventToCalendarRequest {
 
-    private String eventId;
-    private String profileId;
+    private final String eventId;
+    private final String profileId;
 
     public AddEventToCalendarRequest(String eventId, String profileId) {
         this.eventId = eventId;
@@ -45,7 +44,7 @@ public class AddEventToCalendarRequest {
             this.eventId = eventId;
             return this;
         }
-        public Builder withCalendar(String profileId){
+        public Builder withProfileId(String profileId){
             this.profileId = profileId;
             return this;
         }

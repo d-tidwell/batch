@@ -1,7 +1,7 @@
 package lambda.update;
 
-import activity.requests.update.UpdateProfileRequest;
-import activity.results.update.UpdateProfileResult;
+import activity.requests.update.AddEventToCalendarRequest;
+import activity.results.update.AddEventToCalendarResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import lambda.LambdaActivityRunner;

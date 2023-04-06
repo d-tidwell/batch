@@ -1,11 +1,12 @@
 package activity.update;
 
+import activity.requests.update.AddEventToCalendarRequest;
+import activity.results.update.AddEventToCalendarResult;
 import converters.ModelConverter;
 import dynamodb.ProfileDao;
 import dynamodb.model.Calendar;
 import exceptions.CalendarNotFoundException;
 import exceptions.InvalidAttributeException;
-import lambda.update.AddEventToCalendarLambda;
 import models.CalendarModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,14 +30,15 @@ public class AddEventToCalendarActivity {
 
     public AddEventToCalendarResult handleRequest(final AddEventToCalendarRequest addEventToCalendarRequest)
             throws CalendarNotFoundException, InvalidAttributeException {
-        log.info("Received AddEventToCalendarRequset {}", addEventToCalendarRequest);
-        Calendar validCalendar = profileDao.getCalendar(addEventToCalendarRequest.getId());
+        log.info("Received AddEventToCalendarRequest {}", addEventToCalendarRequest);
+        //validate existing calendar - throws error is not there
+        Calendar validCalendar = profileDao.getCalendar(addEventToCalendarRequest.getEventId());
         Calendar addedEventCalendar = profileDao.addEventToCalendar(addEventToCalendarRequest.getEventId(),
-                                        addEventToCalendarRequest.getCalendarId());
+                                        addEventToCalendarRequest.getProfileId());
         CalendarModel calendarModel = new ModelConverter().toCalendarModel(addedEventCalendar);
 
         return AddEventToCalendarResult.builder()
-                .withCalendarId(calendarModel)
+                .withCalendar(calendarModel)
                 .build();
     }
 }
